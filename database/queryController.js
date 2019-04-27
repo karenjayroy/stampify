@@ -20,26 +20,31 @@ const addUser = (req, res, next) => {
 }
 
 const addCard = (req, res, next) => {
-    client.query('INSERT INTO user_store ("user_id", "store_id", "stamp_count") VALUES ((SELECT user_id FROM users WHERE user_name = $1), (SELECT store_id from stores where store_name= $2), 0) returning *', [req.body.name, req.body.store], (err, result) => {
+    // console.log(req.params);
+    client.query('INSERT INTO user_store ("user_id", "store_id", "stamp_count") VALUES ((SELECT user_id from users where user_name = $1), (SELECT store_id from stores where store_name= $2), 0) returning *', [req.body.name, req.params.store], (err, result) => {
         if(err) {
-            console.log('it is not working')
+            console.log(req.params.store)
             return res.status(400).send('Failed to create new card!');
         } 
-        // console.log('success!');
         res.locals.userCard = result;
         return next();
     });
 }
 
-const stampCounts = (req, res, next) => {
-
+const stampCount = (req, res, next) => {
+    client.query('select stamp_count, store_name from user_store inner join stores on user_store.store_id = stores.store_id where user_id = $1;', [req.body.user], (err, result) => {
+        if(err) {
+            return res.status(400).send('Failed to find stamp cards.');
+        } 
+        res.locals.stamps = result;
+        return next();
+    })
 }
 
 const userLogin = (req, res, next) => {
      client.query(`SELECT * FROM users WHERE user_name=$1 and user_password=$2;`, [req.body.name, req.body.password], (err, result) => {
          if(err) {
-             console.log('Failed login. Please check username and password');
-             return res.status(400).send('Failed to create user!');
+             return res.status(400).send('Failed to login!');
          } 
          res.locals.user = result;
          return next()
@@ -51,14 +56,28 @@ const storeLogin = (req, res, next) => {
      const password = req.body.password;
      client.query(`SELECT * FROM stores WHERE store_name=$1 and store_password=$2;`, [name, password], (err, result) => {
         if(err) {
-            return res.status(400).send('Failed login!')
+            return res.status(400).send('Failed login!');
         } 
+        // console.log('this is the result' , result);
         res.locals.store = result;
         return next();
      })
 }
 
-module.exports = {addUser, addCard, userLogin, storeLogin};
+const addStamp = (req, res, next) => {
+    const number = req.params.phone;
+    const id = req.body.storeid;
+    client.query('update user_store set stamp_count = (Select stamp_count from user_store inner join users on user_store.user_id = users.user_id where phone_number=$1 and user_store.store_id = $2) + 1 where user_store.store_id = $2 and user_id = (select user_id from users where phone_number = $1)', [number, id], (err, result) => {
+        if(err) {
+            return res.status(400).send('Failed login!');
+        } 
+        // console.log('updated')
+        res.locals.stampCount = result;
+        return next();
+    })
+}
+
+module.exports = {addUser, addCard, userLogin, storeLogin, stampCount, addStamp};
 
 
 // *****query to add new users and stores into user table & store table*****
@@ -78,8 +97,12 @@ module.exports = {addUser, addCard, userLogin, storeLogin};
 //  client.query(`SELECT * FROM stores WHERE store_name=$1 and store_password=$2;`, [name, password]
 
 // query to get stamp counts 
-    // client.query('select stamp_counts from user_store where user_id = $1'), [req.body.userId]
-
+    // client.query('select stamp_count, store_name from user_store inner join stores on user_store.store_id = store_id where user_id = $1'), [req.body.userId]
+    
+//     from customers
+// join orders
+//    on customers.customer_id = orders.customer_id
+// where customer_id = 3
 
 // query to increment stamp cards
     // first find the user 
@@ -87,6 +110,11 @@ module.exports = {addUser, addCard, userLogin, storeLogin};
 // client.query(`SELECT store_id FROM STORES WHERE = store_name= $1;`, [storename]
     // if it matches 
 //  client.query(`SELECT stamp_count FROM USER_STORES WHERE user_id=$1 and store_id=$2;`, [name, password]
+
+// (')
+
+
+
 
 
 
