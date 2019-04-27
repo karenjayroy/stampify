@@ -20,32 +20,32 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../index.html'));
 })
 
-// Signup for new user account *done*
+// Signup for new user account *done* postman works
 app.post('/signup', loyalty.addUser, (req, res) => {
   res.send(res.locals.addUser);
 });
 
-// User Login *done* how to send data back.
+// User Login *done* postman works
 app.post('/userlogin', loyalty.userLogin, (req, res) => {
-  res.send('Welcome back loyal customer');
+  res.send(res.locals.user.rows[0]);
 });
 
-// Store Login *done* need to send data back
-app.post('/storelogin', (req, res) => {
-  res.send('Welcome back!');
+// Store Login *done* postman works
+app.post('/storelogin', loyalty.storeLogin, (req, res) => {
+  res.send(res.locals.store.rows[0]);
 });
 
-// get stamp counts 
-app.get('/usercards', (req, res) => {
-  res.send();
+// get stamp counts *done* postman works
+app.get('/usercards', loyalty.stampCount, (req, res) => {
+  res.send(res.locals.stamps.rows);
 });
 
 // Add stamp to user card by phone #
-app.put('/stamp/:phone', (req, res) => {
-  res.send();
+app.put('/stamp/:phone', loyalty.addStamp, (req, res) => {
+  res.send(res.locals.stampCount);
 });
 
-// Add store to user's cards !figure out using params!
+// Add store to user's cards *done*
 app.post('/store/:store', loyalty.addCard, (req, res) => {
   res.send(res.locals.userCard);
 })
