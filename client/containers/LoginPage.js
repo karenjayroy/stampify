@@ -7,11 +7,15 @@ import StoreLogin from '../components/StoreLogin'
 import * as actions from '../actions/actions'
 
 
+
 //Our stateful component aka container where login/signup child components are receiving their props from
 const mapDispatchToProps = dispatch => ({
-    signUp: (name='Karen', password='pw', phone=21) => dispatch(actions.createUserAsync(name, password, phone))
+    signUp: (name, password, phoneNumber) => dispatch(actions.createUserAsync(name, password, phoneNumber))
 })
 
+const mapStateToProps = store => ({
+    userId: store.userId
+})
 
 
 class LoginPage extends React.Component {
@@ -30,4 +34,4 @@ class LoginPage extends React.Component {
 }
 
 
-export default connect (null, mapDispatchToProps)(LoginPage);
+export default connect (mapStateToProps, mapDispatchToProps)(LoginPage);

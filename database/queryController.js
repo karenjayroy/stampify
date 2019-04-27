@@ -8,7 +8,7 @@ const client = new Client({
 client.connect()
 
 const addUser = (req, res, next) => {
-    client.query('INSERT INTO users ("user_name", "user_password", "phoneNumber") VALUES ($1, $2, $3) RETURNING *;', [req.body.name, req.body.password, req.body.phoneNumber], (err, result) => {
+    client.query('INSERT INTO users ("user_name", "user_password", "phone_number") VALUES ($1, $2, $3) RETURNING *;', [req.body.name, req.body.password, req.body.phone_number], (err, result) => {
         if(err) {
             console.log(err);
             return res.status(400).send('Failed to create user!');
