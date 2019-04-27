@@ -4,14 +4,20 @@ import { Provider } from 'react-redux'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import LoginPage from './LoginPage';
 
+
+//redux-router setup
 const Root = ({ store }) => (
   <Provider store={store}>
     <Router>
-      <Route path="/:filter?" component={LoginPage} />
+      <div>
+      <Route path="/" component={LoginPage} />
+      {/* <Route path='/user' component={}/> */}
+      {/* <Route path='/store' component={}/> */}
+      </div>
     </Router>
   </Provider>
 )
-
+//redux-router setup
 Root.propTypes = {
   store: PropTypes.object.isRequired
 }

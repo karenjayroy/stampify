@@ -1,12 +1,13 @@
 import React from 'react'
 import { render} from 'react-dom'
-import { createStore } from 'redux'
-import StampifyApp from './reducers/reducers'
-import MainContainer from './containers/MainContainer'
+import { createStore, applyMiddleware } from 'redux'
+import thunk from 'redux-thunk'
+import StampifyApp from './reducers/userReducer'
+import App from './containers/App'
 
 
-const store = createStore(StampifyApp)
+const store = createStore(StampifyApp, applyMiddleware(thunk))
 
-render(<MainContainer store={store}/>, document.getElementById('root'))
+render(<App store={store}/>, document.getElementById('root'))
 
 
