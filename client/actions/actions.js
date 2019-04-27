@@ -1,24 +1,22 @@
 import * as types from '../constants/actionTypes'
 
-export const createUser = (userName, userPassword, phone) => ({
+export const createUser = (userName, userId, phone) => ({
     type: types.CREATE_USER,
-    payload: {userName, userPassword, phone}
+    payload: {userName, userId, phone}
 });
-
 
 
 export const createUserAsync = (name, password, phone) => {
     return function(dispatch, getState) {
-        console.log('insde create user async function')
-        return fetch('/signup', {
+        console.log()
+        return fetch('http://localhost:3000/signup', {
             method: "POST",
             headers: {"content-type": "application/json"},
-            body: {name, password, phone}
+            body: JSON.stringify({"name": name, "password": password, "phone_number" : phone})
         })
         .then(response => response.json())
-        .then( response => {
-            console.log('response', response)
-            dispatch(createUser(name, password, phone))
+        .then(response => {
+            dispatch(createUser(response[0].user_name, response[0].user_id, response[0].phone_number))
             }
         )
         .catch(err => console.log(err))

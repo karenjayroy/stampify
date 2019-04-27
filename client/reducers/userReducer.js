@@ -5,16 +5,23 @@ import * as types from '../constants/actionTypes'
 
 const initialState = {
     userId: null,
-    userName: ''
+    userName: '',
+    userPhone: null
 }
 
 const userReducer = (state = initialState, action) => {
     switch(action.type) {
         case types.CREATE_USER:
+            const userId= action.payload.userId
+            const userName= action.payload.userName
+            const userPhone= action.payload.phone
          return {
-             ...state
+             ...state,
+             userId,
+             userName,
+             userPhone
          } 
-         
+
          default: 
             return state;  
     }

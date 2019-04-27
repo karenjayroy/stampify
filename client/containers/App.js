@@ -1,19 +1,20 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Provider } from 'react-redux'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import LoginPage from './LoginPage';
+import UserPage from './UserPage'
 
 
 //redux-router setup
 const Root = ({ store }) => (
   <Provider store={store}>
     <Router>
-      <div>
-      <Route path="/" component={LoginPage} />
-      {/* <Route path='/user' component={}/> */}
-      {/* <Route path='/store' component={}/> */}
-      </div>
+      <Switch>
+        <Route exact path="/" component={LoginPage} />
+        <Route path='/user' component={UserPage}/>
+        {/* <Route path='/store' component={}/> */}
+      </Switch>
     </Router>
   </Provider>
 )
