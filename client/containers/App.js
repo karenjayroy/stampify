@@ -4,6 +4,7 @@ import { Provider } from 'react-redux'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import LoginPage from './LoginPage';
 import UserPage from './UserPage'
+import StorePage from './StorePage'
 
 
 //redux-router setup
@@ -13,7 +14,7 @@ const Root = ({ store }) => (
       <Switch>
         <Route exact path="/" component={LoginPage} />
         <Route path='/user' component={UserPage}/>
-        {/* <Route path='/store' component={}/> */}
+        <Route path='/store' component={StorePage}/>
       </Switch>
     </Router>
   </Provider>
