@@ -1,29 +1,24 @@
 import * as types from '../constants/actionTypes'
+//sets up an initial state
+import initialState from '../constants/initState'
 
 //our reducer for users
-//sets up an initial state
 
-const initialState = {
-    userId: null,
-    userName: '',
-    userPhone: null
-}
 
 const userReducer = (state = initialState, action) => {
     switch(action.type) {
-        case types.CREATE_USER:
-            const userId= action.payload.userId
-            const userName= action.payload.userName
-            const userPhone= action.payload.phone
+        case types.LOGIN_USER:
          return {
              ...state,
-             userId,
-             userName,
-             userPhone
-         } 
+             user: {
+               userId: action.payload.userId,
+               userName: action.payload.userName,
+               userPhone: action.payload.phone
+             },
+         }
 
-         default: 
-            return state;  
+         default:
+            return state;
     }
 }
 

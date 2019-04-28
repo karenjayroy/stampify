@@ -8,6 +8,7 @@ import userReducer from './userReducer';
 const reducers = combineReducers({
   // if we had other reducers, they would go here
   users: userReducer,
+  stores: storeReducer,
 });
 
 // make the combined reducers available for import

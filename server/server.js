@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const bodyParser = require('body-parser');
-const loyalty = require('./../database/querycontroller');
+const loyalty = require('../database/queryController.js');
 
 
 
@@ -14,15 +14,15 @@ app.use(function (req, res, next) {
   next();
 });
 
-
-
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../index.html'));
 })
 
+
+
 // Signup for new user account *done* postman works
 app.post('/signup', loyalty.addUser, (req, res) => {
-  res.send(res.locals.addUser);
+  res.send(res.locals.addUser[0]);
 });
 
 // User Login *done* postman works
