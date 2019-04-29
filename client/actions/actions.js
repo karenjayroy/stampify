@@ -50,8 +50,8 @@ export const loginUserAsync = (name, password) => {
             console.log(response);
             return response.json()})
         .then(response => {
-            console.log('this is the response body', response)
-            dispatch(loginUser(response.user.user_name, response.user.user_id, response.user.phone_number))
+            // console.log('this is the response body', response)
+            dispatch(loginUser(response.user.user_name, response.user.user_id, response.user.phone_number, response.cards))
             }
         )
         .catch(err => console.log(err))
@@ -63,13 +63,14 @@ export const loginUserAsync = (name, password) => {
   export const addCardAsync = (userName, storeName) => {
     return function(dispatch, getState) {
         console.log()
-        return fetch('http://localhost:3000/store/:store', {
+        return fetch('http://localhost:3000/store/' + storeName, {
             method: "POST",
             headers: {"content-type": "application/json"},
-            body: JSON.stringify({"name": userName, "store": storeName }) // double check how to use params*******
+            body: JSON.stringify({"name": userName }) // double check how to use params*******
         })
         .then(response => response.json())
         .then(response => {
+            // console.log('stammppssss', response.rows[0].store_name);
             dispatch(addCard(response.user_id, response.store_name))
             }
         )
@@ -88,7 +89,7 @@ export const loginUserAsync = (name, password) => {
           })
           .then(response => response.json())
           .then(response => {
-              console.log(response);
+              console.log();
               dispatch(loginStore(response.store_name, response.store_id));
               }
           )
