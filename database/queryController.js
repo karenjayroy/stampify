@@ -23,7 +23,7 @@ const addCard = (req, res, next) => {
     // console.log(req.params);
     client.query('INSERT INTO user_store ("user_id", "store_id", "stamp_count") VALUES ((SELECT user_id from users where user_name = $1), (SELECT store_id from stores where store_name= $2), 0) returning *', [req.body.name, req.params.store], (err, result) => {
         if(err) {
-            console.log(req.params.store)
+            // console.log(req.params.store)
             return res.status(400).send('Failed to create new card!');
         }
         res.locals.userCard = result;
@@ -32,11 +32,12 @@ const addCard = (req, res, next) => {
 }
 
 const stampCount = (req, res, next) => {
-    client.query('select stamp_count, store_name from user_store inner join stores on user_store.store_id = stores.store_id where user_id = $1;', [req.body.user], (err, result) => {
+    client.query('select stamp_count, store_name from user_store inner join stores on user_store.store_id = stores.store_id where user_id = $1;', [res.locals.user.rows[0].user_id], (err, result) => {
         if(err) {
             return res.status(400).send('Failed to find stamp cards.');
         }
         res.locals.stamps = result;
+        console.log('stampsss', res.locals.stamps);
         return next();
     })
 }

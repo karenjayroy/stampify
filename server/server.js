@@ -27,8 +27,9 @@ app.post('/signup', loyalty.addUser, (req, res) => {
 });
 
 // User Login *done* postman works
-app.post('/userlogin', loyalty.userLogin, (req, res) => {
-  res.send(res.locals.user.rows[0]);
+app.post('/userlogin', loyalty.userLogin, loyalty.stampCount, (req, res) => {
+  console.log('this is the stampCards', res.locals.stamps.rows)
+  res.send({user: res.locals.user.rows[0], cards: res.locals.stamps.rows});
 });
 
 // Store Login *done* postman works
@@ -41,7 +42,7 @@ app.get('/usercards', loyalty.stampCount, (req, res) => {
   res.send(res.locals.stamps.rows);
 });
 
-// Add stamp to user card by phone #
+// Add stamp to user card by phone # *done*
 app.put('/stamp/:phone', loyalty.addStamp, (req, res) => {
   res.send(res.locals.stampCount);
 });

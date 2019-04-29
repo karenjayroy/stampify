@@ -19,6 +19,7 @@ const mapDispatchToProps = dispatch => ({
 const mapStateToProps = store => ({
     user: store.user,
     store: store.store
+
 }) // should've called our shops something other than store >_<
 
 

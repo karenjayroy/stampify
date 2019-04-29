@@ -3,7 +3,8 @@ const initialState = {
     user: {
       userId: null,
       userName: '',
-      userPhone: null
+      userPhone: null,
+      loyaltyCards: []
     },
     store: {
       storeId: null,
