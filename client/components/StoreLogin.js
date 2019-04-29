@@ -4,7 +4,7 @@ import React from 'react'
 
 const StoreLogin = props => (
     <div id="storeLogin">
-        Store Login
+        <h2>Store Login</h2>
         <input id="storeLoginName" type="text" placeholder="name"></input>
         <input id="storeLoginPassword" type="password" placeholder="password"></input>
         <button onClick={(e) => {

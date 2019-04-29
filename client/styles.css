@@ -1,0 +1,67 @@
+body, div, h1, h2, h3 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  background-color: #F28482;
+}
+
+#loginPage {
+  margin: 0 auto;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#signUp, #userLogin, #storeLogin {
+
+  height: 200px;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  border: 4px solid #A4036F;
+  justify-content: space-around;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+#signUp {
+  width: 60%;
+  margin-top: 20px;
+  background-color: #C0DF85;
+}
+
+#userLogin, #storeLogin {
+  width: 45%;
+  background-color: #F6BD60;
+}
+
+#signUp h2, #userLogin h2, #storeLogin h2 {
+  width: 100%;
+  display: block;
+  text-align: center;
+  color: #A4036F;
+  font-size: 20pt;
+}
+
+#signUp input, #userLogin input, #storeLogin input {
+  width: 33%;
+  max-width: 200px;
+  display: inline-block;
+  border: 2px solid #A4036F;
+  border-radius: 4px;
+  background-color: white;
+}
+
+#signUp button, #userLogin button, #storeLogin button {
+  width: 90px;
+  color: #A4036F;
+  border: 2px solid #A4036F;
+  border-radius: 4px;
+  background-color: white;
+}
