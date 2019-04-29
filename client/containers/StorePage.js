@@ -19,7 +19,7 @@ class StorePage extends React.Component {
     render() {
         return(
             <div id="storePage">
-                <h1>Welcome to the Store Page! {" " + this.props.store.storeName +" User"}</h1>
+                <h1>Welcome to the Store Page {" " + this.props.store.storeName +" User!"}</h1>
                 <AddStampBox store={this.props.store} addStamp={this.props.addStamp}/>
             </div>
 
