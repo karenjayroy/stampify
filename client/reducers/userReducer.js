@@ -14,22 +14,21 @@ const initialState = {
 const userReducer = (state = initialState, action) => {
     switch(action.type) {
         case types.LOGIN_USER:
-            // console.log('this is hitting');
+            console.log('this is hitting');
          return {
              ...state,
                userId: action.payload.userId,
                userName: action.payload.userName,
-               userPhone: action.payload.phone,
-               loyaltyCards: action.payload.loyaltyCards
+               userPhone: action.payload.phone
+
          }
 
-         case types.ADD_CARD:
-            // console.log(state.);
-            const newLoyaltyCard = state.loyaltyCards.slice(0);
-            console.log('this is before', newLoyaltyCard);
-            newLoyaltyCard.push(action.payload.storeName)
-            console.log('this is afterrrr', newLoyaltyCard);
+         case types.LOGOUT:
+          return initialState;
 
+         case types.ADD_CARD:
+            const newLoyaltyCard = loyaltyCards.slice(0);
+            newLoyaltyCard.push(action.payload.storeName)
             return {
                 ...state,
                   loyaltyCards: newLoyaltyCard

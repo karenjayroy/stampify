@@ -20,6 +20,10 @@ export const addCard = (storeName, userId) => ({
     payload: {storeName, userId}
 })
 
+export const logout = () => ({
+  type: types.LOGOUT,
+})
+
 // signup a new user by name, password, phone number
 export const createUserAsync = (name, password, phone) => {
     return function(dispatch, getState) {
@@ -50,8 +54,8 @@ export const loginUserAsync = (name, password) => {
             console.log(response);
             return response.json()})
         .then(response => {
-            // console.log('this is the response body', response)
-            dispatch(loginUser(response.user.user_name, response.user.user_id, response.user.phone_number, response.cards))
+            console.log('this is the response body', response)
+            dispatch(loginUser(response.user.user_name, response.user.user_id, response.user.phone_number))
             }
         )
         .catch(err => console.log(err))
@@ -63,14 +67,13 @@ export const loginUserAsync = (name, password) => {
   export const addCardAsync = (userName, storeName) => {
     return function(dispatch, getState) {
         console.log()
-        return fetch('http://localhost:3000/store/' + storeName, {
+        return fetch('http://localhost:3000/store/:store', {
             method: "POST",
             headers: {"content-type": "application/json"},
-            body: JSON.stringify({"name": userName }) // double check how to use params*******
+            body: JSON.stringify({"name": userName, "store": storeName }) // double check how to use params*******
         })
         .then(response => response.json())
         .then(response => {
-            // console.log('stammppssss', response.rows[0].store_name);
             dispatch(addCard(response.user_id, response.store_name))
             }
         )
@@ -89,7 +92,7 @@ export const loginUserAsync = (name, password) => {
           })
           .then(response => response.json())
           .then(response => {
-              console.log();
+              console.log(response);
               dispatch(loginStore(response.store_name, response.store_id));
               }
           )

@@ -17,6 +17,9 @@ const storeReducer = (state = initialState, action) => {
                storeName: action.payload.storeName,
          }
 
+        case types.LOGOUT:
+         return initialState;
+
         case types.STAMP_SUCCESS:
          console.log("Stamp success: " + action.payload.success );
          return {
