@@ -28,7 +28,7 @@ app.post('/signup', loyalty.addUser, (req, res) => {
 
 // User Login *done* postman works
 app.post('/userlogin', loyalty.userLogin, loyalty.stampCount, (req, res) => {
-  console.log('this is the stampCards', res.locals.stamps.rows)
+  // console.log('this is the stampCards', res.locals.stamps.rows)
   res.send({user: res.locals.user.rows[0], cards: res.locals.stamps.rows});
 });
 
