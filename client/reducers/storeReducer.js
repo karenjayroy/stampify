@@ -25,7 +25,6 @@ const storeReducer = (state = initialState, action) => {
          }
 
 
-
          default:
             return state;
     }

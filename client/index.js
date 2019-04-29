@@ -4,7 +4,7 @@ import { createStore, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 import StampifyApp from './reducers/CombineReducers'
 import App from './containers/App'
-
+require('./styles.css')
 
 const store = createStore(StampifyApp, applyMiddleware(thunk))
 
