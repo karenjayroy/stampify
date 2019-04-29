@@ -12,12 +12,13 @@ import * as actions from '../actions/actions'
 //Our stateful component aka container where login/signup child components are receiving their props from
 const mapDispatchToProps = dispatch => ({
     signUp: (name, password, phoneNumber) => dispatch(actions.createUserAsync(name, password, phoneNumber)),
-    userLogin: (name, password) => dispatch(actions.loginUserAsync(name, password))
+    userLogin: (name, password) => dispatch(actions.loginUserAsync(name, password)),
 })
 
 const mapStateToProps = store => ({
     user: store.user,
     store: store.store
+    
 }) // should've called our shops something other than store >_<
 
 
