@@ -1,6 +1,11 @@
 import * as types from '../constants/actionTypes'
 //sets up an initial state
-import initialState from '../constants/initState'
+
+const initialState = {
+    storeId: null,
+    storeName: ''
+}
+
 
 const storeReducer = (state = initialState, action) => {
     switch(action.type) {
@@ -18,3 +23,5 @@ const storeReducer = (state = initialState, action) => {
             return state;
     }
 }
+
+export default storeReducer;
