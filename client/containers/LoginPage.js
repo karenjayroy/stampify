@@ -13,12 +13,13 @@ import * as actions from '../actions/actions'
 const mapDispatchToProps = dispatch => ({
     signUp: (name, password, phoneNumber) => dispatch(actions.createUserAsync(name, password, phoneNumber)),
     userLogin: (name, password) => dispatch(actions.loginUserAsync(name, password)),
+    storeLogin: (name, password) => dispatch(actions.loginStoreAsync(name, password))
 })
 
 const mapStateToProps = store => ({
     user: store.user,
     store: store.store
-    
+
 }) // should've called our shops something other than store >_<
 
 
@@ -41,7 +42,7 @@ class LoginPage extends React.Component {
               <div id="loginPage">
                 <SignUp signUp={this.props.signUp}/>
                 <UserLogin userLogin={this.props.userLogin}/>
-                <StoreLogin/>
+                <StoreLogin storeLogin={this.props.storeLogin}/>
             </div>
           )
       }

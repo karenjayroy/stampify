@@ -3,7 +3,7 @@ import { combineReducers } from 'redux';
 // import all reducers here
 import userReducer from './userReducer';
 import storeReducer from './storeReducer';
-// shouldn't we import the storeReducer here??
+
 
 // combine reducers
 const reducers = combineReducers({

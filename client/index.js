@@ -8,6 +8,6 @@ import App from './containers/App'
 
 const store = createStore(StampifyApp, applyMiddleware(thunk))
 
+console.log(store.getState());
+
 render(<App store={store}/>, document.getElementById('root'))
-
-

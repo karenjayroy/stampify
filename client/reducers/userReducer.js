@@ -1,6 +1,6 @@
 import * as types from '../constants/actionTypes'
 //sets up an initial state
-// import initialState from '../constants/initState'
+
 
 //our reducer for users
 const initialState = {
@@ -20,9 +20,10 @@ const userReducer = (state = initialState, action) => {
                userId: action.payload.userId,
                userName: action.payload.userName,
                userPhone: action.payload.phone
+
          }
-         
-         case types.ADD_CARD: 
+
+         case types.ADD_CARD:
             const newLoyaltyCard = loyaltyCards.slice(0);
             newLoyaltyCard.push(action.payload.storeName)
             return {
