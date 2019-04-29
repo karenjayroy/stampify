@@ -27,7 +27,7 @@ const userReducer = (state = initialState, action) => {
             // console.log(state.);
             const newLoyaltyCard = state.loyaltyCards.slice(0);
             console.log('this is before', newLoyaltyCard);
-            newLoyaltyCard.push(action.payload.storeName)
+            newLoyaltyCard.push({store_name: action.payload.storeName, stamp_count: 0})
             console.log('this is afterrrr', newLoyaltyCard);
 
             return {
