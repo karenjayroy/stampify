@@ -1,6 +1,11 @@
 import * as types from '../constants/actionTypes'
 //sets up an initial state
-import initialState from '../constants/initState'
+
+const initialState = {
+  storeId: null,
+  storeName: '',
+  stampSuccess: null
+}
 
 const storeReducer = (state = initialState, action) => {
     switch(action.type) {
@@ -8,13 +13,22 @@ const storeReducer = (state = initialState, action) => {
          console.log("Logging in store: " + action.payload.storeName );
          return {
              ...state,
-             store: {
                storeId: action.payload.storeId,
                storeName: action.payload.storeName,
-             },
          }
+
+        case types.STAMP_SUCCESS:
+         console.log("Stamp success: " + action.payload.success );
+         return {
+           ...state,
+           stampSuccess: action.payload.success
+         }
+
+
 
          default:
             return state;
     }
 }
+
+export default storeReducer;

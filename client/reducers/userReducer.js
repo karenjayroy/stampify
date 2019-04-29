@@ -1,6 +1,11 @@
 import * as types from '../constants/actionTypes'
 //sets up an initial state
-import initialState from '../constants/initState'
+
+const initialState = {
+  userId: null,
+  userName: '',
+  userPhone: null
+}
 
 //our reducer for users
 
@@ -10,11 +15,10 @@ const userReducer = (state = initialState, action) => {
         case types.LOGIN_USER:
          return {
              ...state,
-             user: {
                userId: action.payload.userId,
                userName: action.payload.userName,
                userPhone: action.payload.phone
-             },
+             
          }
 
          default:
