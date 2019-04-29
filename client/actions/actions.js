@@ -15,7 +15,7 @@ export const stampSuccess = (success) => ({
   payload: {success}
 })
 
-export const addCard = (storeName, userId) => ({
+export const addCard = (userId, storeName) => ({
     type: types.ADD_CARD,
     payload: {storeName, userId}
 })
@@ -74,7 +74,8 @@ export const loginUserAsync = (name, password) => {
         })
         .then(response => response.json())
         .then(response => {
-            dispatch(addCard(response.user_id, response.store_name))
+            // console.log('stammppssss', response.rows[0].store_name);
+            dispatch(addCard(response.user_id, storeName))
             }
         )
         .catch(err => console.log(err))

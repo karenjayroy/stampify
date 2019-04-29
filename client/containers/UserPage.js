@@ -27,10 +27,11 @@ class UserPage extends React.Component {
         })
         return(
             <div id="userPage">
-                Welcome to the User Page! User
-                {" " + this.props.user.userId}
+                <h1> Welcome to the User Page! {" " + this.props.user.userName} </h1>
                 < AddCard addCard={this.props.addCard} user={this.props.user} />  
-                {stampCards}
+                <div id="stampCards">
+                    {stampCards}
+                </div>
             </div>
 
         )
