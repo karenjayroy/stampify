@@ -19,8 +19,8 @@ const userReducer = (state = initialState, action) => {
              ...state,
                userId: action.payload.userId,
                userName: action.payload.userName,
-               userPhone: action.payload.phone
-
+               userPhone: action.payload.phone,
+               loyaltyCards: action.payload.loyaltyCards
          }
 
          case types.LOGOUT:
@@ -29,9 +29,9 @@ const userReducer = (state = initialState, action) => {
          case types.ADD_CARD:
             // console.log(state.);
             const newLoyaltyCard = state.loyaltyCards.slice(0);
-            console.log('this is before', newLoyaltyCard);
+            // console.log('this is before', newLoyaltyCard);
             newLoyaltyCard.push({store_name: action.payload.storeName, stamp_count: 0})
-            console.log('this is afterrrr', newLoyaltyCard);
+            // console.log('this is afterrrr', newLoyaltyCard);
 
             return {
                 ...state,
