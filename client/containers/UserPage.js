@@ -33,17 +33,12 @@ class UserPage extends React.Component {
         } else
         return(
             <div id="userPage">
-<<<<<<< HEAD
                 <h1> Welcome Loyal Customer {" " + this.props.user.userName}! </h1>
                 < AddCard addCard={this.props.addCard} user={this.props.user} />  
-=======
-                <h1> Welcome to the User Page {" " + this.props.user.userName}! </h1>
-                < AddCard addCard={this.props.addCard} user={this.props.user} />
->>>>>>> 507b7e870c20cdad29c8305b603604c9fd352d48
                 <div id="stampCards">
                     {stampCards}
                 </div>
-                <button onClick={this.props.logout}>Log Out</button>
+                <button className="logout" onClick={this.props.logout}>Log Out</button>
             </div>
 
         )
