@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom';
 // stuck on the event listener.
 
 const AddCard = props => (
-    <div>
+    <div id="addMe">
         <input id="addCard" type="text" placeholder="start a new stamp card"></input>
         <button onClick={e => props.addCard(props.user.userName, document.getElementById("addCard").value)}>Add Card</button>
     </div>

@@ -111,3 +111,45 @@ h1, h2, h3 {
 /* #storePage {
   align-content: center;
 } */
+#stampCards {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#userPage {
+  text-align: center;
+  margin-top: 60px;
+
+}
+
+#addCard {
+  padding: 8px 10px;
+  margin-bottom: 25px;
+  border-radius: 3px;
+  border-color: #A4036F;
+}
+
+.stampCard {
+  display: flex;
+  flex-flow: row wrap;
+  width: 30%;
+  margin: 0 auto;
+  border: solid 1px black;
+}
+
+.stampCard h3 {
+  width: 100%;
+}
+
+.stamped, .noStamp {
+  width: 20%;
+  text-align: center;
+}
+
+#addMe button {
+  display: block;
+  margin: 0 auto;
+  border-color: #A4036F;
+}
