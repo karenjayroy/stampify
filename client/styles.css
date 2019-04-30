@@ -111,7 +111,6 @@ h1, h2, h3 {
 /* #storePage {
   align-content: center;
 } */
-
 #stampCards {
   display: flex;
   flex-flow: row wrap;
@@ -154,4 +153,3 @@ h1, h2, h3 {
   margin: 0 auto;
   border-color: #A4036F;
 }
-
