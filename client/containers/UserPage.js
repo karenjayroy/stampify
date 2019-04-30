@@ -6,7 +6,7 @@ import * as actions from '../actions/actions'
 
 // need to create mapdispatch to props
 const mapDispatchToProps = dispatch => ({
-    addCard: (userName, storeName, ) => dispatch(actions.addCardAsync(userName, storeName))
+    addCard: (userName, storeName) => dispatch(actions.addCardAsync(userName, storeName))
 })
 
 const mapStateToProps = store => ({
@@ -20,7 +20,7 @@ class UserPage extends React.Component {
     }
 
     render() {
-        // console.log('this is ittt.', this.props.user.loyaltyCards);
+        console.log('this is ittt.', this.props.user);
         const stampCards = this.props.user.loyaltyCards.map((el, index) => {
             console.log('this is each element', el);
             return <StampCard key={index} stampCount={el.stamp_count} storeName={el.store_name} />

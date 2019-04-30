@@ -8,6 +8,7 @@ import {Link} from 'react-router-dom';
 const AddCard = props => (
     <div id="addMe">
         <input id="addCard" type="text" placeholder="start a new stamp card"></input>
+        {console.log(props.user.userName)}
         <button onClick={e => props.addCard(props.user.userName, document.getElementById("addCard").value)}>Add Card</button>
     </div>
 )
