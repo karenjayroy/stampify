@@ -121,14 +121,25 @@ h1, h2, h3 {
 #userPage {
   text-align: center;
   margin-top: 60px;
-
+  text-transform: capitalize;
 }
 
 #addCard {
-  padding: 8px 10px;
-  margin-bottom: 25px;
+  padding: 12px 20px;
+  font-size: 16px;
+  margin-bottom: 30px;
   border-radius: 3px;
   border-color: #A4036F;
+}
+
+#addMe {
+  margin-bottom: 40px;
+}
+
+#addMe button {
+  padding: 12px 16px;
+  font-size: 16px;
+  border-radius: 3px;
 }
 
 .stampCard {
@@ -136,7 +147,9 @@ h1, h2, h3 {
   flex-flow: row wrap;
   width: 30%;
   margin: 0 auto;
-  border: solid 1px black;
+  border: solid 2px #A4036F;
+  color: #A4036F;
+  background-color: #F6BD60;
 }
 
 .stampCard h3 {
@@ -152,4 +165,10 @@ h1, h2, h3 {
   display: block;
   margin: 0 auto;
   border-color: #A4036F;
+}
+
+#userPage h1 {
+  margin-bottom: 35px;
+  color: #7DDF64;
+  font-size: 60px;
 }
