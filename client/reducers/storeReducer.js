@@ -1,14 +1,20 @@
 import * as types from '../constants/actionTypes'
-//sets up an initial state
 
-const initialState = { 
+//sets up an initial state
+const initialState = {
+
   storeId: null,
   storeName: '',
   stampSuccess: null
 }
 
+//sets up the store reducer with initial state and action
+//Includes cases for the stores with the actions created in the action types
+
+
 const storeReducer = (state = initialState, action) => {
     switch(action.type) {
+
         case types.LOGIN_STORE: // Store is logging in so set state of Store data
          //console.log("Logging in store: " + action.payload.storeName );
          return {

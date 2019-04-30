@@ -6,6 +6,7 @@ import StampifyApp from './reducers/CombineReducers'
 import App from './containers/App'
 require('./styles.css')
 
+//connects thunk
 const store = createStore(StampifyApp, applyMiddleware(thunk))
 
 

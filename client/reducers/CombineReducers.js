@@ -7,7 +7,7 @@ import storeReducer from './storeReducer';
 
 // combine reducers
 const reducers = combineReducers({
-  // if we had other reducers, they would go here
+  //both reducers combined
   user: userReducer,
   store: storeReducer,
 });
