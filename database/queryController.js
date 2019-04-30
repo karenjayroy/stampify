@@ -37,7 +37,7 @@ const stampCount = (req, res, next) => {
             return res.status(400).send('Failed to find stamp cards.');
         }
         res.locals.stamps = result;
-        console.log('stampsss', res.locals.stamps);
+        // console.log('stampsss', res.locals.stamps);
         return next();
     })
 }

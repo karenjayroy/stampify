@@ -14,7 +14,7 @@ const initialState = {
 const userReducer = (state = initialState, action) => {
     switch(action.type) {
         case types.LOGIN_USER:
-            console.log('this is hitting');
+            // console.log('this is hitting');
          return {
              ...state,
                userId: action.payload.userId,
