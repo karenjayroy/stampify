@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-
+// Login box for the Store
 const StoreLogin = props => (
     <div id="storeLogin">
         <h2>Store Login</h2>

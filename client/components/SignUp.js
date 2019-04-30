@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 
 
 //child component to the LoginPage container
+// We use vanilla js DOM functions to get variables from text inputs
 const SignUp = props => (
     <div id="signUp">
         <h2>New User Sign Up</h2>

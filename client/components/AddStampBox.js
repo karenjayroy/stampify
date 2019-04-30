@@ -1,5 +1,6 @@
 import React from 'react';
 
+// Box to enter a user's phone number and add a stamp to their code.
 
 const AddStampBox = props => (
   <div id="AddPointsBox">

@@ -13,13 +13,14 @@ const mapDispatchToProps = dispatch => ({
   logout: () => dispatch(actions.logout())
 })
 
+// Main page for the Store
 class StorePage extends React.Component {
     constructor(props) {
         super(props);
     }
 
     render() {
-      if(!this.props.store.storeId) {
+      if(!this.props.store.storeId) { //For when store logs out. On state change, render Redirect.
         return <Redirect to="/"></Redirect>
       } else
         return(
