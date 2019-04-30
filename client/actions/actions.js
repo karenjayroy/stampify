@@ -93,7 +93,7 @@ export const loginUserAsync = (name, password) => {
           })
           .then(response => response.json())
           .then(response => {
-              console.log(response);
+            //   console.log(response);
               dispatch(loginStore(response.store_name, response.store_id));
               }
           )

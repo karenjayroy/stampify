@@ -7,6 +7,7 @@ const client = new Client({
 })
 client.connect()
 
+// adding new rows to user table
 const addUser = (req, res, next) => {
     client.query('INSERT INTO users ("user_name", "user_password", "phone_number") VALUES ($1, $2, $3) RETURNING *;', [req.body.name, req.body.password, req.body.phone_number], (err, result) => {
         if(err) {
@@ -19,6 +20,7 @@ const addUser = (req, res, next) => {
     })
 }
 
+// adding new row to user_store table
 const addCard = (req, res, next) => {
     // console.log(req.params);
     client.query('INSERT INTO user_store ("user_id", "store_id", "stamp_count") VALUES ((SELECT user_id from users where user_name = $1), (SELECT store_id from stores where store_name= $2), 0) returning *', [req.body.name, req.params.store], (err, result) => {
@@ -31,16 +33,18 @@ const addCard = (req, res, next) => {
     });
 }
 
+// getting stamp count data from user_store table. 
 const stampCount = (req, res, next) => {
     client.query('select stamp_count, store_name from user_store inner join stores on user_store.store_id = stores.store_id where user_id = $1;', [res.locals.user.rows[0].user_id], (err, result) => {
         if(err) {
             return res.status(400).send('Failed to find stamp cards.');
         }
         res.locals.stamps = result;
-        console.log('stampsss', res.locals.stamps);
+        // console.log('stampsss', res.locals.stamps);
         return next();
     })
 }
+
 
 const userLogin = (req, res, next) => {
      client.query(`SELECT * FROM users WHERE user_name=$1 and user_password=$2;`, [req.body.name, req.body.password], (err, result) => {

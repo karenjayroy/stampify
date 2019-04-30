@@ -9,6 +9,5 @@ require('./styles.css')
 //connects thunk
 const store = createStore(StampifyApp, applyMiddleware(thunk))
 
-// console.log(store.getState());
 
 render(<App store={store}/>, document.getElementById('root'))

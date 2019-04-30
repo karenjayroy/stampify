@@ -82,6 +82,7 @@ h1, h2, h3 {
   background-color: #F6BD60;
   margin: 40px 150px 40px 150px;
   padding: 30px;
+  border: solid 2px #A4036F;
 }
 
 #searchBar {
@@ -96,6 +97,8 @@ h1, h2, h3 {
 #addPointsBoxPhone {
   height: 30px; 
   width: 200px;
+  border: solid 2px #A4036F;
+  border-radius: 5px;
   font-size: inherit;
 }
 
@@ -108,9 +111,13 @@ h1, h2, h3 {
   background-color: white;
   font-size: 20px;
 }
-/* #storePage {
-  align-content: center;
-} */
+#storePage h1 {
+  color: #7DDF64;
+  font-size: 60px;
+  margin-bottom: 35px;
+  margin-top: 40px;
+}
+
 #stampCards {
   display: flex;
   flex-flow: row wrap;
@@ -121,14 +128,25 @@ h1, h2, h3 {
 #userPage {
   text-align: center;
   margin-top: 60px;
-
+  text-transform: capitalize;
 }
 
 #addCard {
-  padding: 8px 10px;
-  margin-bottom: 25px;
+  padding: 12px 20px;
+  font-size: 16px;
+  margin-bottom: 30px;
   border-radius: 3px;
   border-color: #A4036F;
+}
+
+#addMe {
+  margin-bottom: 40px;
+}
+
+#addMe button {
+  padding: 12px 16px;
+  font-size: 16px;
+  border-radius: 3px;
 }
 
 .stampCard {
@@ -136,7 +154,21 @@ h1, h2, h3 {
   flex-flow: row wrap;
   width: 30%;
   margin: 0 auto;
-  border: solid 1px black;
+  border: solid 2px #A4036F;
+  color: #A4036F;
+  background-color: #F6BD60;
+  margin-bottom: 20px;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+#idCard {
+  margin: 0 auto;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
 }
 
 .stampCard h3 {
@@ -151,5 +183,36 @@ h1, h2, h3 {
 #addMe button {
   display: block;
   margin: 0 auto;
-  border-color: #A4036F;
+  /* border-color: #A4036F; */
+  border: solid #A4036F 2px;
 }
+
+#userPage h1 {
+  margin-bottom: 35px;
+  color: #7DDF64;
+  font-size: 60px;
+}
+
+.logout {
+  display: block;
+  margin: 0 auto;
+  padding: 12px 16px;
+  font-size: 16px;
+  border-radius: 3px;
+  border: solid #A4036F 2px;
+}
+
+#loginPage h1 {
+  width: 100%;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  font-size: 5em;
+  color: #7DDF64;
+}
+
+#AddPointsBox h3, #AddPointsBox h2 {
+  color: #A4036F;
+  font-size: 30px;
+}
+
+
