@@ -34,7 +34,7 @@ export const createUserAsync = (name, password, phone) => {
         })
         .then(response => response.json())
         .then(response => {
-            dispatch(loginUser(response.user_name, response.user_id, response.phone_number))
+            dispatch(loginUser(response.user_name, response.user_id, response.phone_number, []))
             }
         )
         .catch(err => console.log(err))
