@@ -24,9 +24,9 @@ class StorePage extends React.Component {
       } else
         return(
             <div id="storePage">
-                <h1>Welcome to the Store Page! {" " + this.props.store.storeName +" User"}</h1>
+                <h1>Welcome {" " + this.props.store.storeName}! </h1>
                 <AddStampBox store={this.props.store} addStamp={this.props.addStamp}/>
-                <button onClick={this.props.logout}>Log Out</button>
+                <button className="logout" onClick={this.props.logout}>Log Out</button>
             </div>
 
         )
