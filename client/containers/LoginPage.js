@@ -39,7 +39,7 @@ class LoginPage extends React.Component {
           return <Redirect to="/store"></Redirect>;
         } else
           return(
-              <div id="loginPage">
+              <div id="loginPage" >
                 <h1>STAMPIFY</h1>
                 <SignUp signUp={this.props.signUp}/>
                 <UserLogin userLogin={this.props.userLogin}/>
