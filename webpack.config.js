@@ -23,6 +23,7 @@ module.exports = {
 
           }
         },
+        {test: /\.(png|jpg|gif|svg)$/,loader: 'url-loader',query: {name: '[name].[ext]?[hash]'}},
         {
           test: /\.css$/,
           exclude: /(node_modules)/,

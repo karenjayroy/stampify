@@ -20,7 +20,6 @@ app.get('/', (req, res) => {
 })
 
 
-
 // Signup for new user account *done* postman works
 app.post('/signup', loyalty.addUser, (req, res) => {
   res.send(res.locals.addUser[0]);

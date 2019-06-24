@@ -4,6 +4,8 @@ import { createStore, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 import StampifyApp from './reducers/CombineReducers'
 import App from './containers/App'
+import { Provider } from 'react-redux'
+
 require('./styles.css')
 
 //connects thunk
