@@ -1,15 +1,5 @@
-import React from 'react'
+import React from "react";
 
-
-const Stamped = props => {
-
-    
-
-    return (
-    
-    <div className="stamped">
-        X
-    </div>
-)}
+const Stamped = () => <div className="stamped">X</div>;
 
 export default Stamped;

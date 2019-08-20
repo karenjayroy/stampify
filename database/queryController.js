@@ -27,8 +27,6 @@ const addUser = (req, res, next) => {
 
 // adding new row to user_store table
 const addCard = (req, res, next) => {
-  // console.log(req.params);
-  console.log("body of add card", req.params.store);
   client.query(
     'INSERT INTO user_store ("user_id", "store_id", "stamp_count") VALUES ((SELECT user_id from users where user_name = $1), (SELECT store_id from stores where store_name= $2), 0) returning *',
     [req.body.name, req.params.store],
@@ -54,7 +52,6 @@ const stampCount = (req, res, next) => {
         return res.status(400).send("Failed to find stamp cards.");
       }
       res.locals.stamps = result;
-      // console.log('stampsss', res.locals.stamps);
       return next();
     }
   );
@@ -101,7 +98,6 @@ const addStamp = (req, res, next) => {
       if (err) {
         return res.status(400).send("Failed login!");
       }
-      // console.log('updated')
       res.locals.stampCount = result;
       return next();
     }
