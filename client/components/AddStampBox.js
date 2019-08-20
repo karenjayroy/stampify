@@ -11,7 +11,6 @@ const AddStampBox = props => (
       <button
         id="addStamp"
         onClick={() => {
-          // console.log("karensucks");
           props.addStamp(
             props.store.storeId,
             document.getElementById("addPointsBoxPhone").value
@@ -21,7 +20,7 @@ const AddStampBox = props => (
         +
       </button>
     </div>
-    {/* <h3>{props.store.stampSuccess ? "Customer Got Stamped!" : ""}</h3> */}
+    <h3>{props.store.stampSuccess ? "Customer Got Stamped!" : ""}</h3>
   </div>
 );
 
